@@ -30,10 +30,10 @@ your point of contact with us, e.g. your recruitment agency.
 ## Deliverable
 
 Please complete the above task and submit via one of the following Git forges:
-- Github
-- GitLab
-- BitBucket
-- Codeberg
+* Github
+* GitLab
+* BitBucket
+* Codeberg
 
 If the above are absolutely not possible, a .zip file is acceptable.  The above
 hosts are the preferred method of delivery.
@@ -44,6 +44,8 @@ hosts are the preferred method of delivery.
 To maintain the integrity of the test as part of our interview process, please
 complete the test while adhering to the following rules regarding use of AI:
 * AI can be used to assist in production of your response to the technical test.
+* You must disclose if you have used AI during the production of your response,
+  and where.
 * An answer generated entirely by AI will fail the technical test.
 * You must be able to understand all code you submit to us in response to the
   technical test.
@@ -51,6 +53,7 @@ complete the test while adhering to the following rules regarding use of AI:
 * Any code you produce for use in the technical test is attributable only to
   you, and must represent you with regard to your interview for the offered
   position.
-* You may be asked to extend the answer in a following stage of the interview
-  process.
+
+You may be asked to extend the answer in a following stage of the interview
+process.
 
