@@ -30,7 +30,7 @@ your point of contact with us, e.g. your recruitment agency.
 ## Deliverable
 
 Please complete the above task and submit via one of the following Git forges:
-* Github
+* GitHub
 * GitLab
 * BitBucket
 * Codeberg
