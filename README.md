@@ -41,19 +41,20 @@ hosts are the preferred method of delivery.
 
 ## Use of AI
 
-To maintain the integrity of the test as part of our interview process, please
-complete the test while adhering to the following rules regarding use of AI:
-* AI can be used to assist in production of your response to the technical test.
-* You must disclose if you have used AI during the production of your response,
-  and where.
-* An answer generated entirely by AI will fail the technical test.
+This test is intended to showcase your technical understanding of the underlying
+technologies. To maintain the integrity of the test as part of our interview
+process, please complete the test while adhering to the following rules
+regarding use of AI:
+
+* Use of AI to complete the technical test is strictly prohibited.
+* A response to the technical test that is identified to be AI-assisted will
+  void the interview process, and you will be automatically rejected for the
+  offered role.
 * You must be able to understand all code you submit to us in response to the
   technical test.
-* You must be able to justify your use of AI in production of your response.
 * Any code you produce for use in the technical test is attributable only to
-  you, and must represent you with regard to your interview for the offered
-  position.
+  you, and is expected to represent you with regard to your ability in the
+  scope of the offered position.
 
 You may be asked to extend the answer in a following stage of the interview
 process.
-
