@@ -1,52 +1,59 @@
-<script setup lang="ts">
-const numbers = [];
-let limit = 100;
-
-function n()
-{
-	let numbers = [];
-	for(var i = 0; i < limit; i++) { numbers = [...numbers, i]; }
-
-	return numbers.sort(() => Math.random() - 0.5);
-}
-
-function hov(number) {
-  const nums = document.querySelectorAll('.number');
-
-  for(let i = 0; i < nums.length; i++)
-  {
-    const num = nums[i].textContent.trim();
-    if(number % num === 0)
-    {
-      nums[i].classList.add('active')
-      console.log('divisor', num)
-    }
-  }
-}
-
-function reset()
-{
-	const nums = document.querySelectorAll('.number');
-	nums.forEach(num => num.classList.remove('active'))
-}
-</script>
-
 <template>
 	<div>
-		<input type="number" v-model="limit" /><br /><br />
-		<div class="number"
-			:id="'number-'+number"
-			v-for="number in n()"
-			:key="number"
-			@mouseover="hov(number)"
-			@mouseout="reset"
-		>
-			{{ number }}
+		<div class="numbers-limit">
+			<label>Numbers Limit (Between: 1 - 1000):</label>
+			<input type="number" v-model="limit" min="1" :max="1000" step="1"/>
+		</div>
+		<div>
+			<div 
+				v-for="number in generatedNumbers"
+				:key="number"
+				:id="'number-'+number"
+				:class="{ 
+					number: true, 
+					divisor: hoveredNumber && hoveredNumber % number === 0,
+					hovered: hoveredNumber === number
+				}"
+				@mouseover="hasHoveredNumber(number)"
+				@mouseout="hasHoveredNumber(null)"
+			>
+				{{ number }}
+			</div>
 		</div>
 	</div>
 </template>
 
+<script setup lang="ts">
+import { ref, watch } from 'vue';
+
+const limit = ref<number>(100); //limit of amount of generated numbers
+const generatedNumbers = ref<number[]>([]); //list of generated numbers
+const hoveredNumber = ref<number | null>(null); //hold currently hovered number
+
+//ovbserve changes of the limit value
+watch(limit, (newVal: number) => {
+	if(newVal >=1 && newVal <= 1000) { //constraint to 1000 max for visual reason, too many numbers could be cumbersome to view
+		setTimeout(() => { //implement some sort of debounce for ux
+			const numbers = Array.from({ length: newVal }, (_, index) => index + 1); //generate based on limit value
+			generatedNumbers.value = numbers.sort(() => Math.random() - 0.5); //sort randomly
+		}, 500);
+	}
+}, { immediate: true })
+
+function hasHoveredNumber(number: number | null) {
+	hoveredNumber.value = number; //Set the hovered numver value
+}
+</script>
+
 <style>
+.numbers-limit {
+	margin-bottom: 10px;
+}
+input {
+  margin-left: 8px;
+  padding: 4px;
+}
+
 .number {
 	display: inline-block;
 	padding: 5px;
@@ -54,7 +61,10 @@ function reset()
 	margin: 5px;
 }
 
-.active {
-	background-color: red;
+.number.divisor {
+	background-color: red; /* Hovered number highlighted in red*/
+}
+.number.hovered {
+	background-color: darkgray; /* Hovered number highlighted in gray*/
 }
 </style>
